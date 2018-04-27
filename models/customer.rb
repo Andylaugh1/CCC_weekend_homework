@@ -39,16 +39,17 @@ class Customer
 
   def pay_ticket(film_price)
     @funds -= film_price
-    sql = "UPDATE customers SET funds = $1 WHERE id = $2"
-    values = [@funds, @id]
-    SqlRunner.run(sql, values)
+    update()
+    # sql = "UPDATE customers SET funds = $1 WHERE id = $2"
+    # values = [@funds, @id]
+    # SqlRunner.run(sql, values)
   end
 
   def how_many_tickets()
-    sql = "SELECT tickets.* FROM tickets WHERE customer_id = $1"
+    sql = "SELECT * FROM tickets WHERE customer_id = $1"
     values = [@id]
-    SqlRunner.run(sql, values)
-    return sql
+    tickets =  SqlRunner.run(sql, values)
+    return tickets.count
   end
 
   def self.all()
