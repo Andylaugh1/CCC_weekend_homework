@@ -36,6 +36,19 @@ class Film
     return Customer.map_items(customer_hashes)
   end
 
+  def how_many_customers()
+    return customers.count
+  end
+
+  def screenings()
+    sql = "SELECT films.*, screenings.*
+        FROM films LEFT JOIN screenings ON films.id =
+        screenings.film_id WHERE film_id = $1"
+    values = [@id]
+    film_times = SqlRunner.run(sql, values)
+    return Screening.map_items(film_times)
+  end
+
   def self.all()
     sql = "SELECT * FROM films"
     film_hashes = SqlRunner.run(sql)

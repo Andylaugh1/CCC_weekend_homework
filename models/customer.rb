@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 require_relative('../models/film.rb')
+require_relative('../models/ticket.rb')
 
 class Customer
 
@@ -37,8 +38,8 @@ class Customer
     return Film.map_items(film_hashes)
   end
 
-  def pay_ticket(film_price)
-    @funds -= film_price
+  def pay_ticket(film)
+    @funds -= film.price
     update()
     # sql = "UPDATE customers SET funds = $1 WHERE id = $2"
     # values = [@funds, @id]

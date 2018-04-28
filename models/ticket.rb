@@ -20,6 +20,15 @@ class Ticket
     @id = ticket['id'].to_i
   end
 
+  # def Ticket.save_new(customer, film)
+  #   sql = "INSERT INTO tickets (customer_id, film_id)
+  #         VALUES ($1, $2)
+  #         RETURNING id"
+  #   values = [@customer_id, @film_id]
+  #   ticket = SqlRunner.run(sql, values).first()
+  #   @id = ticket['id'].to_i
+  # end
+
   def self.all()
     sql = "SELECT * FROM tickets"
     ticket_hashes = SqlRunner.run(sql)
@@ -33,7 +42,7 @@ class Ticket
   end
 
   def self.delete_all()
-    sql = "DELETE FROM tickets"
+    sql = "DELETE  FROM tickets"
     SqlRunner.run(sql)
   end
 
