@@ -91,31 +91,45 @@ ticket5.save()
 
 screening1 = Screening.new({
   "film_id" => film1.id,
-  "show_time1" => '13:55',
-  "show_time2" => '18:30'
+  "show_time" => '18:55'
   })
 screening1.save
 
 screening2 = Screening.new({
   "film_id" => film3.id,
-  "show_time1" => '15:00',
-  "show_time2" => '20:15'
+  "show_time" => '19:00'
   })
 screening2.save
 
 screening3 = Screening.new({
   "film_id" => film4.id,
-  "show_time1" => '16:45',
-  "show_time2" => '17:30'
+  "show_time" => '21:25'
   })
 screening3.save
 
 screening4 = Screening.new({
   "film_id" => film2.id,
-  "show_time1" => '12:25',
-  "show_time2" => '19:00'
+  "show_time" => '20:15'
   })
 screening4.save
+
+screening5 = Screening.new({
+  "film_id" => film1.id,
+  "show_time" => '20:50'
+  })
+screening5.save
+
+screening6 = Screening.new({
+  "film_id" => film4.id,
+  "show_time" => '16:40'
+  })
+screening6.save
+
+screening7 = Screening.new({
+  "film_id" => film2.id,
+  "show_time" => '15:45'
+  })
+screening7.save
 
   binding.pry
   nil

@@ -41,9 +41,12 @@ class Customer
   def pay_ticket(film)
     @funds -= film.price
     update()
-    # sql = "UPDATE customers SET funds = $1 WHERE id = $2"
-    # values = [@funds, @id]
-    # SqlRunner.run(sql, values)
+    # sql = "INSERT INTO tickets (customer_id, film_id)
+    #       VALUES ($1, $2)
+    #       RETURNING id"
+    # values = [@customer_id, ticket.film_id]
+    # ticket = SqlRunner.run(sql, values).first()
+    # @id = ticket['id'].to_i
   end
 
   def how_many_tickets()
